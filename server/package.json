@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "fastify": "^4.26.2",
+    "mongoose": "^8.2.1"
+  },
+  "name": "server",
+  "version": "1.0.0",
+  "description": "\"upsurge-search-backend\"",
+  "main": "App.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vishesh",
+  "license": "ISC"
+}
