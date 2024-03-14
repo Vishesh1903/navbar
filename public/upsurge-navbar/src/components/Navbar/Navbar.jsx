@@ -5,33 +5,60 @@ import search_icon_light from "../../assets/search-w.png";
 import search_icon_dark from "../../assets/search-b.png";
 import toggle_light from "../../assets/night.png";
 import toggle_dark from "../../assets/day.png";
-const Navbar = ({theme, setTheme}) => {
+import { IoIosArrowDropup } from "react-icons/io";
 
-    const toggle_mode = () =>{
-        setTheme(theme === 'light' ? 'dark' : 'light');
-    }
+const Navbar = ({ theme, setTheme }) => {
+  const toggle_mode = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
   return (
     <div className="navbar">
       <div className="logo">
         <img src={logo} alt="" className="logo-img" />
         <h2>Upsurge.Club</h2>
       </div>
-      <ul>
-        <li>Learn</li>
-        <li>MasterClass</li>
-        <li>Upsurge.Club PRO</li>
-      </ul>
 
-      <div className="search-box">
-        <img src={theme == 'light'?search_icon_light : search_icon_dark} alt="" />
-        <input
-          type="text"
-          placeholder="Search for Options, Strategies, Mutual Fund ..."
-        />
-        
+      <div className="navlinks">
+        <div>
+          <div className="arrow-div">Learn</div>
+          <div>
+            <IoIosArrowDropup className="arrow" />
+          </div>
+        </div>
+
+        <div>MasterClass</div>
+        <div className="pro-container">
+          <div className="new-pro">New</div>
+          <div>Upsurge.Club PRO</div>
+        </div>
       </div>
-      
-      <img onClick={() => {toggle_mode();}} src={theme == 'light'?toggle_light : toggle_dark} alt="" className="toggle-icon" />
+
+      <div className="search-box-div">
+        <div className="search-box">
+          <img src={search_icon_light} alt="" />
+          <input
+            type="text"
+            placeholder="Search for Options, Strategies, Mutual Funds..."
+          />
+        </div>
+
+        <div>
+          <button className="btns login">Login</button>
+        </div>
+
+        <div>
+          <button className="btns sign-up">Sign Up</button>
+        </div>
+      </div>
+
+      <img
+        onClick={() => {
+          toggle_mode();
+        }}
+        src={theme == "light" ? toggle_light : toggle_dark}
+        alt=""
+        className="toggle-icon"
+      />
     </div>
   );
 };
