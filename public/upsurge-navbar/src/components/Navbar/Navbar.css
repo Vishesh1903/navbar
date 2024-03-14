@@ -35,12 +35,30 @@ ul li {
     cursor: pointer;
     font-weight: 600;
 }
+.learn-container{
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    
+}
 .arrow-div{
-    align-items: center;
-
+    /* align-items: flex-end; */
+    /* padding-top: 1rem; */
+    /* height:100%;
+    padding-top:0.75rem; */
+    border-radius: 50%;
 }
 .arrow{
     font-size: 1.2rem;
+    /* margin-top: 1rem; */
+    fill: #717171;
+    transform: rotate(180deg);
+
+}
+.arrow:hover{
+    fill: #fff;
+    transition: transform 0.2s ease-in-out;
+    transform: rotate(360deg);
 }
 
 .toggle-icon {
@@ -101,9 +119,9 @@ ul li {
     display: flex;
     gap: 3rem;
     align-items: flex-end;
-    margin-right: 5rem;
+    margin-right: 4rem;
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     padding-bottom: 1%; 
 }
 
