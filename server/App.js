@@ -5,7 +5,7 @@ const routes = require('./routes');
 const app = fastify();
 
 
-mongoose.connect('mongodb://localhost:27017/upsurge', {
+mongoose.connect('mongodb://127.0.0.1:27017/upsurge', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
