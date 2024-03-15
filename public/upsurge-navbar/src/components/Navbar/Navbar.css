@@ -31,7 +31,6 @@
 
 ul li {
   display: inline-block;
-  margin: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   font-weight: 600;
@@ -42,10 +41,6 @@ ul li {
   gap: 1rem;
 }
 .arrow-div {
-  /* align-items: flex-end; */
-  /* padding-top: 1rem; */
-  /* height:100%;
-    padding-top:0.75rem; */
   border-radius: 50%;
 }
 .mega-menu {
@@ -53,15 +48,133 @@ ul li {
   width: 100%;
   background: #fff;
   top: 11%;
-  height: 70%;
   opacity: 0;
   visibility: hidden;
-  /* box-shadow: 0px 10px 2px 3px lightblue; */
+  transition: all 0.5s ease;
   left: 0;
+}
+.megamenuitems {
+  color: #000;
+  display: flex;
+  gap: 10rem;
+}
+
+.club-courses {
+  font-weight: 600;
+  background: #f7f7f7;
+  width: 25rem;
+  padding-top: 4rem;
+  padding-left: 3rem;
+}
+.cl-title {
+  background: #fff;
+  display: flex;
+  margin: 2% 0 2% 2%;
+  width: 100%;
+  padding: 4%;
+  border-left: 2px solid #df4271;
+  border-top-left-radius: 0.8rem;
+  border-bottom-left-radius: 0.8rem;
+}
+.play-ico-container {
+  background: #fae3ea;
+  height: fit-content;
+  width: fit-content;
+  margin-right: 5%;
+  padding: 2%;
+  border-radius: 20%;
+}
+.play-ico {
+  font-size: 1.5rem;
+  align-items: center;
+  margin: auto;
+  color: #df4271;
+}
+.cl-title h2 {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+.cl-title p {
+  color: #717171;
+  font-size: 0.8rem;
+  font-weight: 400;
+  width: 11rem;
+}
+.ccategories-container {
+  margin-top: 5rem;
+  padding-bottom: 3rem;
+  width: 20rem;
+}
+.ccategories-container h3 {
+  color: #717171;
+  font-size: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+.ccategories-container li {
+  padding: 3% 3%;
+  font-size: 0.9rem;
+}
+.ccategories-container li:hover {
+  font-size: 0.9rem;
+  background: #c9ccf1;
+  color: #007aff;
+  border-radius: 0.5rem;
+}
+.tcourses-container {
+  margin-top: 5rem;
+  padding-bottom: 3rem;
+  width: 30rem;
+}
+.tcourses-container h3 {
+  color: #717171;
+  font-size: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+.tcourses-container li {
+  padding: 2% 3%;
+  font-size: 0.9rem;
+}
+.tcourses-container li:hover {
+  font-size: 0.9rem;
+  background: #c9ccf1;
+  color: #007aff;
+  border-radius: 0.5rem;
+}
+.course-list-div {
+  height: 4rem;
+}
+.tcourse-list-div {
+  border-left: 1px solid grey;
+  padding-left: 2rem;
+}
+.course-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.tcourse-list {
+  display: flex;
+  flex-direction: column;
+}
+.vac-btn {
+  background: #fff;
+  color: #3e48ce;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: 1px solid #3e48ce;
+  text-align: center;
+  margin-top: 1rem;
+  margin-left: 2rem;
+  padding: 3% 0%;
+  width: 80%;
+}
+.vac-btn:hover {
+  background: #3e48ce;
+  color: #fff;
+  transition: 0.2s;
 }
 .arrow {
   font-size: 1.2rem;
-  /* margin-top: 1rem; */
   fill: #c9ccf1;
   transform: rotate(180deg);
 }
@@ -107,10 +220,6 @@ ul li {
   cursor: pointer;
 }
 
-/* .dark .search-box input::placeholder {
-    color: #fff;
-} */
-
 .btns {
   padding: 10% 10%;
   width: 6rem;
@@ -132,6 +241,7 @@ ul li {
   gap: 1rem;
   align-items: center;
   position: relative;
+  color: #000;
 }
 
 .search-results {
@@ -146,6 +256,7 @@ ul li {
   border-radius: 0.5rem;
   max-height: 70vh;
   overflow-y: scroll;
+  padding: 3%;
 }
 .search-results::-webkit-scrollbar {
   width: 9px;
@@ -159,7 +270,6 @@ ul li {
 }
 .login {
   background: #fff;
-  /* padding:15px 16px; */
   color: #3e48ce;
   border-radius: 0.5rem;
   font-weight: 600;
@@ -172,18 +282,12 @@ ul li {
 }
 .sign-up {
   background: #3e48ce;
-  /* padding: 15px; */
   color: #fff;
   border: none;
   border-radius: 0.5rem;
   font-weight: 600;
 }
-/* .pro-container{
-    display: flex;
-    flex-direction:column;
-    align-items: flex-start;
 
-} */
 .new-pro {
   color: #e5618a;
 }
@@ -194,7 +298,6 @@ ul li {
 }
 .dark .arrow {
   font-size: 1.2rem;
-  /* margin-top: 1rem; */
   fill: #717171;
   transform: rotate(180deg);
 }
@@ -213,7 +316,6 @@ ul li {
 
 .dark .login {
   background: #000;
-  /* padding:15px 16px; */
   color: white;
   border-radius: 0.5rem;
   font-weight: 600;
@@ -223,4 +325,34 @@ ul li {
   background: white;
   color: #000;
   transition: 0.2s;
+}
+.search-results h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #717171;
+}
+.categories {
+  border: 1px solid #717171;
+  width: fit-content;
+  padding: 2% 8%;
+  border-radius: 50px;
+  margin: 3% 0;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.categories:hover {
+  background: #c9ccf1;
+  border: 1px solid #c9ccf1;
+}
+.search-data {
+  margin: 3% 0;
+  font-weight: 500;
+  border-bottom: 1px solid #717171;
+  width: fit-content;
+  line-height: 1.45678;
+  padding-bottom: 3%;
+}
+.lcm-container {
+  margin-top: 1.5rem;
 }

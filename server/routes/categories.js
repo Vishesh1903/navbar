@@ -29,14 +29,13 @@ const mergeCategories = (categories) => {
     };
 
     categories.forEach(category => {
-        // Merging different items
         mergedCategory.names.push(...category.names);
         mergedCategory.learningPaths.push(...category.learningPaths);
         mergedCategory.courses.push(...category.courses);
         mergedCategory.masterclasses.push(...category.masterclasses);
     });
 
-    // Removing duplicates
+    
     mergedCategory.names = [...new Set(mergedCategory.names)];
     mergedCategory.learningPaths = removeDuplicates(mergedCategory.learningPaths);
     mergedCategory.courses = removeDuplicates(mergedCategory.courses);
