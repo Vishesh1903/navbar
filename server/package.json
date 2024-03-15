@@ -1,18 +1,17 @@
 {
-  "dependencies": {
-    "fastify": "^4.26.2",
-    "mongoose": "^8.2.1"
-  },
-  "name": "server",
+  "name": "navbar",
   "version": "1.0.0",
-  "description": "\"upsurge-search-backend\"",
-  "main": "App.js",
-  "devDependencies": {},
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node App.js",
-    "dev" : "nodemon App.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vishesh",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/cors": "^9.0.1",
+    "fastify": "^4.26.2",
+    "fastify-cors": "^6.1.0",
+    "mongoose": "^8.2.1"
+  }
 }

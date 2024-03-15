@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const masterClassSchema = new mongoose.Schema({
-  name: String,
-  instructor: String
+const masterclassSchema = new mongoose.Schema({
+  title: String,
+  description: String
 });
 
-module.exports = mongoose.model('MasterClass', masterClassSchema);
+module.exports = mongoose.model('Masterclass', masterclassSchema);

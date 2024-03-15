@@ -96,14 +96,18 @@ const Navbar = ({ theme, setTheme }) => {
           />
           {searchTerm.length > 0 && (
             <div className="search-results">
+              <h3>Categories</h3>
               <h3>{searchResults.names.join(", ")}</h3>
               <ul>
+                <h3>Learning Path</h3>
                 {searchResults.learningPaths.map((path, index) => (
                   <li key={index}>{path.title}: {path.description}</li>
                 ))}
+                <h3>Courses</h3>
                 {searchResults.courses.map((course, index) => (
                   <li key={index}>{course.title}: {course.description}</li>
                 ))}
+                <h3>MasterClass</h3>
                 {searchResults.masterclasses.map((masterclass, index) => (
                   <li key={index}>{masterclass.title}: {masterclass.description}</li>
                 ))}
