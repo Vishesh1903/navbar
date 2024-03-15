@@ -52,11 +52,52 @@ const Navbar = ({ theme, setTheme }) => {
 
       <div className="search-box-div">
         <div className="search-box">
-          <img src={search_icon_light} alt="" />
+          <img src={theme === 'light'?search_icon_dark:search_icon_light} alt="" />
           <input
             type="text"
             placeholder="Search for Options, Strategies, Mutual Funds..."
           />
+          <div className="search-results">
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+          </div>
         </div>
 
         <div>
