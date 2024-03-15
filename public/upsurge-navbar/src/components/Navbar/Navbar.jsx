@@ -68,7 +68,7 @@ const Navbar = ({ theme, setTheme }) => {
 
       <div className="navlinks">
         <div className="learn-container">
-          <div>
+          <div className="learn">
             Learn
             <div className="mega-menu">
               <div className="megamenuitems">
@@ -118,9 +118,8 @@ const Navbar = ({ theme, setTheme }) => {
               </div>
             </div>
           </div>
-          <div className="arrow-div">
-            <IoIosArrowDropupCircle className="arrow" />
-          </div>
+
+          <IoIosArrowDropupCircle className="arrow" />
         </div>
 
         <div>MasterClass</div>
