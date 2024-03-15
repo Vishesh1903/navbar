@@ -1,6 +1,7 @@
 .navbar {
     width: 100%;
     display: flex;
+    postion: relative;
     align-items: center;
     justify-content: space-between;
     background: #fff;
@@ -48,6 +49,17 @@ ul li {
     padding-top:0.75rem; */
     border-radius: 50%;
 }
+.mega-menu{
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    top: 11%;
+    height: 70%;
+    opacity: 0;
+    visibility: hidden;
+    /* box-shadow: 0px 10px 2px 3px lightblue; */
+    left:0;
+}
 .arrow{
     font-size: 1.2rem;
     /* margin-top: 1rem; */
@@ -55,10 +67,19 @@ ul li {
     transform: rotate(180deg);
 
 }
-.arrow:hover{
+/* .arrow:hover{
     fill: #fff;
     transition: transform 0.2s ease-in-out;
     transform: rotate(360deg);
+} */
+.learn-container:hover .arrow{
+    fill: #fff;
+    transition: transform 0.2s ease-in-out;
+    transform: rotate(360deg);
+}
+.learn-container:hover .mega-menu{
+    visibility: visible;
+    opacity: 1;
 }
 
 .toggle-icon {
@@ -158,3 +179,4 @@ ul li {
 .new-pro{
     color:#e5618a;
 }
+

@@ -20,9 +20,26 @@ const Navbar = ({ theme, setTheme }) => {
 
       <div className="navlinks">
         <div className="learn-container">
-          <div>Learn</div>
+          <div>
+            Learn
+            <div className="mega-menu">
+              <div className="megamenuitems">
+                <h1>COURSE CATEGORIES</h1>
+                <ul>
+                  <li>Option Trading</li>
+                  <li>Technical Analysis Trading Strategies</li>
+                  <li>Stock Market Investing </li>
+                  <li>Stock Market</li>
+                  <li>Basics Stock</li>
+                  <li>Market Courses in Hindi</li>
+                  <li>Algo Trading</li>
+                  <li>Other Courses</li>
+                </ul>
+              </div>
+            </div>
+          </div>
           <div className="arrow-div">
-            <IoIosArrowDropupCircle  className="arrow" />
+            <IoIosArrowDropupCircle className="arrow" />
           </div>
         </div>
 
