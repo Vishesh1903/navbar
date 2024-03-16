@@ -7,6 +7,14 @@ import toggle_light from "../../assets/night.png";
 import toggle_dark from "../../assets/day.png";
 import { IoIosArrowDropupCircle } from "react-icons/io";
 import { CgPlayButtonO } from "react-icons/cg";
+import { CgMenu } from "react-icons/cg";
+import { CgClose } from "react-icons/cg";
+import { BiSolidBook } from "react-icons/bi";
+import { FaCirclePlay } from "react-icons/fa6";
+import { FaCrown } from "react-icons/fa";
+import { FaEnvelopeOpenText } from "react-icons/fa6";
+import { HiOutlineQuestionMarkCircle } from "react-icons/hi2";
+import { HiWindow } from "react-icons/hi2";
 
 const Navbar = ({ theme, setTheme }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -16,6 +24,11 @@ const Navbar = ({ theme, setTheme }) => {
     courses: [],
     masterclasses: [],
   });
+  const [showSideBar, setShowsideBar] = useState(false);
+
+  const togglesideBar = () => {
+    setShowsideBar(!showSideBar);
+  };
 
   let debounceTimer;
 
@@ -35,7 +48,7 @@ const Navbar = ({ theme, setTheme }) => {
         const response = await fetch(
           `http://localhost:5000/categories/${encodeURIComponent(value)}`
         );
-        console.log(encodeURIComponent(value));
+
         if (response.ok) {
           const data = await response.json();
           setSearchResults(data);
@@ -189,16 +202,101 @@ const Navbar = ({ theme, setTheme }) => {
         <div>
           <button className="btns sign-up">Sign Up</button>
         </div>
-      </div>
+        <div className="mobile-navbar-btns">
+          <CgMenu
+            name="menu-outline"
+            onClick={togglesideBar}
+            className="mobile-nav-icon"
+          />
+        </div>
 
-      <img
-        onClick={() => {
-          toggle_mode();
-        }}
-        src={theme === "light" ? toggle_light : toggle_dark}
-        alt=""
-        className="toggle-icon"
-      />
+        <img
+          onClick={() => {
+            toggle_mode();
+          }}
+          src={theme === "light" ? toggle_light : toggle_dark}
+          alt=""
+          className="toggle-icon"
+        />
+      </div>
+      {/* {showSideBar && (
+        <div className='sidebar'>
+          <div className="temp">A</div>
+        </div>
+      )} */}
+      <div className={`sidebar ${showSideBar ? "show" : ""}`}>
+        <div className="sidebar-btns-container">
+          <div>
+            <button className="btns1 login">Login</button>
+          </div>
+
+          <div>
+            <button className="btns1 sign-up">Sign Up</button>
+          </div>
+        </div>
+        <div className="sidebar-second-section" >
+          <div className="sidebar-links-container sidebar-borderbtm">
+            <div className="sidebar-icons-container">
+              <BiSolidBook className="sidebar-icons" />
+            </div>
+            <div>
+              <div className="sidebar-links-title">Learn</div>
+              <div className="sidebar-links-details">
+                Learn courses and learning paths curated by us.
+              </div>
+            </div>
+          </div>
+          <div className="sidebar-links-container sidebar-borderbtm">
+            <div className="sidebar-icons-container">
+              <FaCrown className="sidebar-icons" />
+            </div>
+            <div>
+              <div className="sidebar-links-title">Upsurge.Club PRO</div>
+              <div className="sidebar-links-details">
+                Get access to all 50+ courses by Upsurge.Club
+              </div>
+            </div>
+          </div>
+          <div className="sidebar-links-container">
+            <div className="sidebar-icons-container">
+              <FaCirclePlay className="sidebar-icons" />
+            </div>
+            <div>
+              <div className="sidebar-links-title">MasterClass</div>
+              <div className="sidebar-links-details">
+                In-depth online courses from Industry leaders
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className="sidebar-links-container sidebar-borderbtm">
+              <div className="sidebar-icons-container">
+                <HiWindow className="sidebar-icons" />
+              </div>
+              <div className="sidebar-links-title end-section-title">Blog</div>
+            </div>
+            <div className="sidebar-links-container sidebar-borderbtm">
+              <div className="sidebar-icons-container">
+                <FaEnvelopeOpenText className="sidebar-icons" />
+              </div>
+              <div className="sidebar-links-title end-section-title">NewsLetter</div>
+            </div>
+            <div className="sidebar-links-container">
+              <div className="sidebar-icons-container">
+                <HiOutlineQuestionMarkCircle className="sidebar-icons" />
+              </div>
+              <div className="sidebar-links-title end-section-title">Help</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <CgClose
+            name="close-outline"
+            className="close-outline mobile-nav-icon close-btn"
+            onClick={togglesideBar}
+          />
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 .navbar {
   width: 100%;
   display: flex;
-  postion: relative;
+  position: relative;
   align-items: center;
   justify-content: space-between;
   background: #fff;
@@ -14,7 +14,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 10%;
 }
 
 .logo-img {
@@ -60,7 +59,7 @@ ul li {
   position: absolute;
   width: 100%;
   background: #fff;
-  top: 11%;
+  top: 100%;
   opacity: 0;
   visibility: hidden;
   transition: all 0.5s ease;
@@ -362,4 +361,122 @@ ul li {
   background: white;
   color: #000;
   transition: 0.2s;
+}
+.mobile-navbar-btns {
+  display: none;
+  color: #000;
+  .close-outline {
+    display: none;
+  }
+}
+.mobile-navbar-btns[name="close-outline"] {
+  display: none;
+}
+@media screen and (max-width: 998px) {
+  .mobile-navbar-btns {
+    display: flex;
+    /* z-index: 999; */
+    background: #fff;
+    border: 1px solid black;
+    border-radius: 50%;
+    .mobile-nav-icon {
+      font-size: 3rem;
+      padding: 0.8rem;
+      border-radius: 50%;
+    }
+  }
+  .navlinks {
+    display: none;
+  }
+  .btns {
+    display: none;
+  }
+}
+/* .sidebar{
+  transform: translateX(-100%);
+}
+.temp{
+  z-index: 1;
+  height: 100vh;
+  width: 80vw;
+  background: grey;
+  position: absolute;
+
+} */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -25rem;
+  width: 20rem;
+  height: 100%;
+  background-color: #fff;
+  z-index: 999;
+  transition: right 0.3s ease;
+}
+
+.sidebar.show {
+  right: 0;
+}
+
+.temp {
+  padding: 20px;
+}
+.close-btn {
+  position: absolute;
+  top: 15px;
+  left: -38px;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 50%;
+  background:#fff;
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 0.2rem;
+}
+.sidebar-btns-container {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.btns1 {
+  padding: 8% 10%;
+  width: 8.2rem;
+  cursor: pointer;
+  border-radius: 0.4rem;
+}
+.sidebar-links-container{
+  display: flex;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding-bottom: 1rem;
+}
+.sidebar-icons-container{
+  display: flex;
+  align-items: center;
+  margin: 4%;
+}
+.sidebar-icons{
+  font-size: 1.5rem;
+}
+.sidebar-links-title{
+  font-weight: 600;
+  margin-bottom: 3%;
+}
+.sidebar-links-details{
+  color: #717171;
+  font-size: 0.9rem;
+}
+.sidebar-borderbtm{
+  border-bottom: 1px solid #717171;
+}
+.end-section-title{
+  display: flex;
+  align-items: center;
+
+}
+.sidebar-second-section{
+  background: #fbfbfe;
+  padding-top: 0.3rem;
 }
