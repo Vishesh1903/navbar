@@ -227,7 +227,7 @@ const Navbar = ({ theme, setTheme }) => {
       <div className={`sidebar ${showSideBar ? "show" : ""}`}>
         <div className="sidebar-btns-container">
           <div>
-            <button className="btns1 login">Login</button>
+            <button className="btns1 login1">Login</button>
           </div>
 
           <div>

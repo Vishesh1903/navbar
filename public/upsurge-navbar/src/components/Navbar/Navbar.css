@@ -410,6 +410,7 @@ ul li {
   width: 20rem;
   height: 100%;
   background-color: #fff;
+  color: #000;
   z-index: 999;
   transition: right 0.3s ease;
 }
@@ -428,7 +429,7 @@ ul li {
   background-color: transparent;
   border: 1px solid black;
   border-radius: 50%;
-  background:#fff;
+  background: #fff;
   cursor: pointer;
   font-size: 2rem;
   padding: 0.2rem;
@@ -445,38 +446,49 @@ ul li {
   cursor: pointer;
   border-radius: 0.4rem;
 }
-.sidebar-links-container{
+.login1 {
+  background: #fff;
+  color: #3e48ce;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: 1px solid #3e48ce;
+}
+.login1:hover{
+  background: #3e48ce;
+  color: #fff;
+}
+
+.sidebar-links-container {
   display: flex;
   margin-top: 2rem;
   margin-left: 1rem;
   margin-right: 1rem;
   padding-bottom: 1rem;
 }
-.sidebar-icons-container{
+.sidebar-icons-container {
   display: flex;
   align-items: center;
   margin: 4%;
 }
-.sidebar-icons{
+.sidebar-icons {
   font-size: 1.5rem;
 }
-.sidebar-links-title{
+.sidebar-links-title {
   font-weight: 600;
   margin-bottom: 3%;
 }
-.sidebar-links-details{
+.sidebar-links-details {
   color: #717171;
   font-size: 0.9rem;
 }
-.sidebar-borderbtm{
+.sidebar-borderbtm {
   border-bottom: 1px solid #717171;
 }
-.end-section-title{
+.end-section-title {
   display: flex;
   align-items: center;
-
 }
-.sidebar-second-section{
+.sidebar-second-section {
   background: #fbfbfe;
   padding-top: 0.3rem;
 }
