@@ -41,7 +41,7 @@ const Navbar = ({ theme, setTheme }) => {
     if (value.trim() !== "") {
       try {
         const response = await fetch(
-          `http://localhost:5000/categories/${encodeURIComponent(value)}`
+          `http://localhost:5000/categories?name=${encodeURIComponent(value)}`
         );
 
         if (response.ok) {

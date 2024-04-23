@@ -36,7 +36,7 @@ const removeDuplicates = (array) => {
 
 const getCategoriesByName = async (request, reply) => {
     try {
-        const { name } = request.params;
+        const { name } = request.query;
 
         const regexPattern = new RegExp(name, 'i');
 
@@ -106,7 +106,7 @@ const createCategory = async (request, reply) => {
 }
 
 module.exports = (fastify, opts, done) => {
-    fastify.get('/categories/:name', getCategoriesByName);
+    fastify.get('/categories', getCategoriesByName);
     fastify.post('/categories', createCategory);
     done();
 };
