@@ -18,12 +18,7 @@ import { HiWindow } from "react-icons/hi2";
 
 const Navbar = ({ theme, setTheme }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState({
-    names: [],
-    learningPaths: [],
-    courses: [],
-    masterclasses: [],
-  });
+  const [searchResults, setSearchResults] = useState(null); 
   const [showSideBar, setShowsideBar] = useState(false);
 
   const togglesideBar = () => {
@@ -56,15 +51,10 @@ const Navbar = ({ theme, setTheme }) => {
           console.error("Failed to fetch search results");
         }
       } catch (error) {
-        console.error("Error fetching search results:", error);
+        console.error("Error fetching search results:", error); 
       }
     } else {
-      setSearchResults({
-        names: [],
-        learningPaths: [],
-        courses: [],
-        masterclasses: [],
-      });
+      setSearchResults(null); 
     }
   };
 
@@ -157,39 +147,54 @@ const Navbar = ({ theme, setTheme }) => {
           {searchTerm.length > 0 && (
             <div className="search-results">
               <ul>
-                <div className="categories-container">
-                  <h3>CATEGORIES</h3>
+                
+                {searchResults && searchResults.names && searchResults.names.length > 0 && (
+                  <div className="categories-container">
+                    <h3>CATEGORIES</h3>
 
-                  {searchResults.names.map((name, index) => (
-                    <div className="categories" key={index}>
-                      {name}
-                    </div>
-                  ))}
-                </div>
-                <div className="lcm-container">
-                  <h3>LEARNING PATHS</h3>
-                  {searchResults.learningPaths.map((path, index) => (
-                    <div className="search-data" key={index}>
-                      {path.title}: {path.description}
-                    </div>
-                  ))}
-                </div>
-                <div className="lcm-container">
-                  <h3>COURSES</h3>
-                  {searchResults.courses.map((course, index) => (
-                    <div className="search-data" key={index}>
-                      {course.title}: {course.description}
-                    </div>
-                  ))}
-                </div>
-                <div className="lcm-container">
-                  <h3>MASTERCLASSES</h3>
-                  {searchResults.masterclasses.map((masterclass, index) => (
-                    <div className="search-data" key={index}>
-                      {masterclass.title}: {masterclass.description}
-                    </div>
-                  ))}
-                </div>
+                    {searchResults.names.map((name, index) => (
+                      <div className="categories" key={index}>
+                        {name}
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                
+                {searchResults && searchResults.learningPaths && searchResults.learningPaths.length > 0 && (
+                  <div className="lcm-container">
+                    <h3>LEARNING PATHS</h3>
+                    {searchResults.learningPaths.map((path, index) => (
+                      <div className="search-data" key={index}>
+                        {path.title}: {path.description}
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+               
+                {searchResults && searchResults.courses && searchResults.courses.length > 0 && (
+                  <div className="lcm-container">
+                    <h3>COURSES</h3>
+                    {searchResults.courses.map((course, index) => (
+                      <div className="search-data" key={index}>
+                        {course.title}: {course.description}
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                
+                {searchResults && searchResults.masterclasses && searchResults.masterclasses.length > 0 && (
+                  <div className="lcm-container">
+                    <h3>MASTERCLASSES</h3>
+                    {searchResults.masterclasses.map((masterclass, index) => (
+                      <div className="search-data" key={index}>
+                        {masterclass.title}: {masterclass.description}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </ul>
             </div>
           )}
@@ -219,11 +224,7 @@ const Navbar = ({ theme, setTheme }) => {
           className="toggle-icon"
         />
       </div>
-      {/* {showSideBar && (
-        <div className='sidebar'>
-          <div className="temp">A</div>
-        </div>
-      )} */}
+      
       <div className={`sidebar ${showSideBar ? "show" : ""}`}>
         <div className="sidebar-btns-container">
           <div>
