@@ -1,38 +1,36 @@
-const Category = require('../models/Category');
-const LearningPath = require('../models/LearningPath');
-const Course = require('../models/Course');
-const Masterclass = require('../models/Masterclass');
+const Category = require("../models/Category");
+const LearningPath = require("../models/LearningPath");
+const Course = require("../models/Course");
+const Masterclass = require("../models/Masterclass");
 
 const mergeCategories = (categories) => {
-    const mergedCategory = {
-        names: [],
-        learningPaths: [],
-        courses: [],
-        masterclasses: []
-    };
+  const mergedCategory = {
+    names: [],
+    learningPaths: [],
+    courses: [],
+    masterclasses: [],
+  };
 
-    categories.forEach(category => {
-        mergedCategory.names.push(...category.names);
-        mergedCategory.learningPaths.push(...category.learningPaths);
-        mergedCategory.courses.push(...category.courses);
-        mergedCategory.masterclasses.push(...category.masterclasses);
-    });
+  categories.forEach((category) => {
+    mergedCategory.names.push(...category.names);
+    mergedCategory.learningPaths.push(...category.learningPaths);
+    mergedCategory.courses.push(...category.courses);
+    mergedCategory.masterclasses.push(...category.masterclasses);
+  });
 
-    mergedCategory.names = [...new Set(mergedCategory.names)];
-    mergedCategory.learningPaths = removeDuplicates(mergedCategory.learningPaths);
-    mergedCategory.courses = removeDuplicates(mergedCategory.courses);
-    mergedCategory.masterclasses = removeDuplicates(mergedCategory.masterclasses);
+  mergedCategory.names = [...new Set(mergedCategory.names)];
+  mergedCategory.learningPaths = removeDuplicates(mergedCategory.learningPaths);
+  mergedCategory.courses = removeDuplicates(mergedCategory.courses);
+  mergedCategory.masterclasses = removeDuplicates(mergedCategory.masterclasses);
 
-    return mergedCategory;
-}
+  return mergedCategory;
+};
 
 const removeDuplicates = (array) => {
-    return array.filter((obj, index, self) =>
-        index === self.findIndex((t) => (
-            t._id === obj._id
-        ))
-    );
-}
+  return array.filter(
+    (obj, index, self) => index === self.findIndex((t) => t._id === obj._id)
+  );
+};
 
 const getCategoriesByName = async (request, reply) => {
     try {
@@ -62,7 +60,18 @@ const getCategoriesByName = async (request, reply) => {
             return;
         }
 
-        const highlightedCategories = categoriesWithoutName.map(category => {
+        
+        const uniqueCategories = [];
+        const uniqueCategoryTitles = new Set();
+
+        for (const category of categoriesWithoutName) {
+            if (!uniqueCategoryTitles.has(category.title)) {
+                uniqueCategories.push(category);
+                uniqueCategoryTitles.add(category.title);
+            }
+        }
+
+        const highlightedCategories = uniqueCategories.map(category => {
             const highlightedCategory = { ...category.toObject() };
 
             highlightedCategory.names = [];
@@ -82,31 +91,30 @@ const getCategoriesByName = async (request, reply) => {
         reply.status(500).send(error);
     }
 }
-
 const createCategory = async (request, reply) => {
-    try {
-        const categoryData = request.body;
+  try {
+    const categoryData = request.body;
 
-        const learningPaths = await LearningPath.create(categoryData.learningPaths);
-        const courses = await Course.create(categoryData.courses);
-        const masterclasses = await Masterclass.create(categoryData.masterclasses);
+    const learningPaths = await LearningPath.create(categoryData.learningPaths);
+    const courses = await Course.create(categoryData.courses);
+    const masterclasses = await Masterclass.create(categoryData.masterclasses);
 
-        const category = await Category.create({
-            names: categoryData.names,
-            description: categoryData.description,
-            learningPaths: learningPaths.map(path => path._id),
-            courses: courses.map(course => course._id),
-            masterclasses: masterclasses.map(masterclass => masterclass._id)
-        });
+    const category = await Category.create({
+      names: categoryData.names,
+      description: categoryData.description,
+      learningPaths: learningPaths.map((path) => path._id),
+      courses: courses.map((course) => course._id),
+      masterclasses: masterclasses.map((masterclass) => masterclass._id),
+    });
 
-        reply.code(201).send(category);
-    } catch (error) {
-        reply.status(500).send(error);
-    }
-}
+    reply.code(201).send(category);
+  } catch (error) {
+    reply.status(500).send(error);
+  }
+};
 
 module.exports = (fastify, opts, done) => {
-    fastify.get('/categories', getCategoriesByName);
-    fastify.post('/categories', createCategory);
-    done();
+  fastify.get("/categories", getCategoriesByName);
+  fastify.post("/categories", createCategory);
+  done();
 };
